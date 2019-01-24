@@ -29,6 +29,7 @@ class UserDetails extends Component {
     // eslint-disable-next-line
     const { match } = nextProps;
     const url = process.env.REACT_APP_API_GITHUB_URL;
+    if(this.props.match !== match){
     fetch(`${url}/users/${match.params.username}`)
       .then((response) => response.json())
       .then((user) => {
@@ -36,6 +37,7 @@ class UserDetails extends Component {
           user,
         });
       });
+    }
   }
 
   async handleDetails(url, typeSearch) {
